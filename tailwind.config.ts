@@ -13,8 +13,22 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        "ping-1": "pinger 1.9s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "ping-2": "pinger 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "ping-3": "pinger 1.9s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "ping-4": "pinger 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+      },
+      keyframes: {
+        pinger: {
+          "75%, 100%": {
+            transform: "scale(2)",
+            opacity: "0",
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };
 export default config;
