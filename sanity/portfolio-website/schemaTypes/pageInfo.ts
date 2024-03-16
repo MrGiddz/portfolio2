@@ -11,6 +11,12 @@ export default defineType({
       type: "string",
     },
     {
+      name: "extraInfo",
+      title: "ExtraInfo",
+      type: "array",
+      of: [{type: "string" }]
+    },
+    {
       name: "role",
       title: "Role",
       type: "string",

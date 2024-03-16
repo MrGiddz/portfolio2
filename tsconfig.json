@@ -27,6 +27,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.js"
-  ],
+, "scrambleText.js"  ],
   "exclude": ["node_modules"]
 }

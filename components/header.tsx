@@ -2,11 +2,15 @@
 
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Social } from "@/typings";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+};
 
-const Header = ({}: Props) => {
+const Header = ({ socials }: Props) => {
+  const navigate = useRouter();
   return (
     <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -26,51 +30,23 @@ const Header = ({}: Props) => {
         className="flex items-center"
       >
         {/* Social Icons */}
-        <SocialIcon
-          url="https://twitter.com/mide_niyi"
-          network="twitter"
-          bgColor="gray"
-          style={{
-            height: "30px",
-            width: "30px",
-            margin: "0 5px"
-          }}
-        />
-        <SocialIcon
-          url="https://instagram.com/mide_niyi"
-          network="instagram"
-          bgColor="gray"
-          style={{
-            height: "30px",
-            width: "30px",
-            margin: "0 5px"
-          }}
-        />
-        <SocialIcon
-          url="https://facebook.com/mide_niyi"
-          network="facebook"
-          bgColor="gray"
-          style={{
-            height: "30px",
-            width: "30px",
-            margin: "0 5px"
-          }}
-        />
-        <SocialIcon
-          url="https://github.com/mrgiddz"
-          network="github"
-          bgColor="gray"
-          style={{
-            height: "30px",
-            width: "30px",
-            margin: "0 5px"
-          }}
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            network={social.network}
+            bgColor="gray"
+            style={{
+              height: "30px",
+              width: "30px",
+              margin: "0 5px",
+            }}
+          />
+        ))}
       </motion.div>
 
       {/* Avatar */}
 
-      <Link href="#contact">
       <motion.div
         initial={{
           x: 500,
@@ -86,6 +62,7 @@ const Header = ({}: Props) => {
           duration: 1.5,
         }}
         className="flex items-center text-gray-300 cursor-pointer"
+        onClick={() => navigate.push("#contact")}
       >
         <SocialIcon
           className="cursor-pointer"
@@ -97,7 +74,6 @@ const Header = ({}: Props) => {
           Get in Touch
         </p>
       </motion.div>
-      </Link>
     </header>
   );
 };

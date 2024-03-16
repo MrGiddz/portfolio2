@@ -5,20 +5,22 @@ import BackgroundCircles from "@/components/background-circles";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PageInfo } from "@/typings";
+import useScrambleAnimation from "@/hooks/useTextScramble";
+import { useState } from "react";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const Hero = ({}: Props) => {
+const Hero = ({ pageInfo }: Props) => {
+  const [headerText, setText] = useState<string>("Software Engineer");
+
+  const delay = 140; // Adjust delay as needed
+  const scrambledText = useScrambleAnimation(headerText, delay);
+
   const [text, count] = useTypewriter({
-    words: [
-      "Hello and welcome! 👋🏽",
-      "I'm Olaniyi Gideon Olamide.",
-      "However, I often go by the name Ola.",
-      "I'm a self-taught developer located in Lagos, Nigeria.",
-      "My passion lies in innovating and crafting exceptional solutions.",
-      "I find joy in creating remarkable products.",
-      "<BornToCreate />",
-    ],
+    words: pageInfo.extraInfo,
     loop: true,
     delaySpeed: 2000,
   });
@@ -44,9 +46,10 @@ const Hero = ({}: Props) => {
           className="relative rounded-full object-cover"
         />
         <div className="z-20">
-          <h2 className="test-sm uppercase font-semibold text-gray-500 pb-2 tracking-[1rem]">
-            Software Engineer
+          <h2 className="test-sm role-text uppercase font-semibold text-gray-500 pb-2 tracking-[1rem]">
+            {scrambledText}
           </h2>
+
           <h1 className="text-3xl sm:4xl lg:text-6xl">
             <span className="mr-3 capitalize">{text}</span>
             <Cursor cursorColor="#F7AB0A" />

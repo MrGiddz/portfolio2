@@ -13,6 +13,8 @@
 /.next/
 /out/
 
+/sanity/portfolio-website/node_modules
+
 # production
 /build
 

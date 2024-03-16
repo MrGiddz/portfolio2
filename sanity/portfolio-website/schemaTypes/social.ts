@@ -12,6 +12,12 @@ export default defineType({
       type: "string",
     },
     {
+      name: "network",
+      title: "Network",
+      description: "social media",
+      type: "string",
+    },
+    {
       name: "url",
       title: "Url",
       type: "url",
