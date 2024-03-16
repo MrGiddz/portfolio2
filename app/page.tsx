@@ -36,10 +36,10 @@ export default async function Home() {
       <Hero pageInfo={pageInfo} />
 
       {/* About */}
-      <About />
+      <About pageInfo={pageInfo}/>
 
       {/* Experience */}
-      <WorkExperience />
+      <WorkExperience experience={experience} />
 
       {/* Skills */}
       <Skills />

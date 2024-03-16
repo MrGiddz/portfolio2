@@ -18,11 +18,11 @@ const BackgroundCircles = ({}: Props) => {
       }}
       className="relative flex justify-center items-center"
     >
-      <div className="absolute border border-l-stone-400 rounded-full h-[100px] w-[100px] sm:h-[160px] sm:w-[160px] lg:h-[200px] lg:w-[200px] mt-52 animate-ping-1" />
-      <div className="absolute border border-l-stone-400 rounded-full h-[160px] w-[160px] sm:h-[260px] sm:w-[260px]  lg:h-[300px] lg:w-[300px] mt-52 animate-ping-2" />
-      <div className="absolute border border-l-stone-400 rounded-full h-[240px] w-[240px] sm:h-[380px] sm:w-[380px]  lg:h-[500px] lg:w-[500px] mt-52 animate-ping-3" />
+      <div className="absolute border border-stone-400/40 rounded-full h-[100px] w-[100px] sm:h-[160px] sm:w-[160px] lg:h-[200px] lg:w-[200px] mt-52 animate-ping-1" />
+      <div className="absolute border border-stone-400/30 rounded-full h-[160px] w-[160px] sm:h-[260px] sm:w-[260px]  lg:h-[300px] lg:w-[300px] mt-52 animate-ping-2" />
+      <div className="absolute border border-stone-400/20 rounded-full h-[240px] w-[240px] sm:h-[380px] sm:w-[380px]  lg:h-[500px] lg:w-[500px] mt-52 animate-ping-3" />
       <div className="absolute border border-[#F7AB0A] rounded-full opacity-20 h-[340px] w-[340px] sm:h-[480px] sm:w-[480px] lg:h-[650px] lg:w-[650px] mt-52 animate-pulse" />
-      <div className="absolute border border-l-stone-400 rounded-full h-[450px] w-[450px] sm:h-[600px] sm:w-[600px] lg:h-[800px] lg:w-[800px] mt-52 animate-ping-4" />
+      <div className="absolute border border-stone-400/10 rounded-full h-[450px] w-[450px] sm:h-[600px] sm:w-[600px] lg:h-[800px] lg:w-[800px] mt-52 animate-ping-4" />
     </motion.div>
   );
 };

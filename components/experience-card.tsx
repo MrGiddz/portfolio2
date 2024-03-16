@@ -1,10 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Experience } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  experience: Experience
+};
 
-function ExperienceCard({}: Props) {
+function ExperienceCard({experience}: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[500px] xl:w-[700px] span-center bg-[#292929] p-10 opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
       <motion.img
@@ -21,13 +25,13 @@ function ExperienceCard({}: Props) {
           once: true,
         }}
         className="w-32 h-32 xl:w-[200px] object-contain object-center"
-        src="/skm.png"
+        src={urlFor(experience?.companyImage).url()}
         alt=""
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">Frontend Developer</h4>
-        <p className="font-bold text-2xl mt-1">SkoolMedia</p>
+        <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
+        <p className="font-bold text-2xl mt-1">{experience.company}</p>
         <div className="flex space-x-2 my-2">
           <Image
             className="h-10 w-10 rounded-full"

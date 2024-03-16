@@ -1,10 +1,14 @@
 "use client";
 
+import { urlFor } from "@/sanity";
+import { PageInfo } from "@/typings";
 import { motion } from "framer-motion";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <section id="about" className="snap-center">
       <motion.div
@@ -26,7 +30,7 @@ export default function About({}: Props) {
           }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
-          src="/avatar.png"
+          src={urlFor(pageInfo.profilePic).url()}
           className="w-36 h-36 sm:w-56 sm:h-56 bg-white/80 object-contain -mb-28 md:mb-0 flex-shrink-0 rounded-full md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
         />
         <div className="space-y-10 px-0 md:px-10">
@@ -35,20 +39,7 @@ export default function About({}: Props) {
             <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
             background
           </h4>
-          <p className="text-base m-0">
-            Hey there, I&apos;m Olaniyi Gideon Olamide, but most folks just call
-            me Olamide. Back in 2016, I kicked off my journey in software
-            development, diving headfirst into a world filled with endless
-            possibilities. Since then, I&apos;ve been wearing many hats, from
-            freelancing gigs to teaming up with agencies and startups. I&apos;ve
-            got my hands dirty in all sorts of tech stuff, like frontend and
-            backend development, tinkering with network setups, and even taking
-            the lead on some projects. I thrive on turning complex ideas into
-            real-world solutions, whether it&apos;s tweaking lines of code or
-            crafting seamless user experiences. For me, it&apos;s not just about
-            the tech; it&apos;s about making a meaningful impact in this
-            ever-changing tech landscape.
-          </p>
+          <p className="text-base m-0">{pageInfo.backgroundinformation}</p>
         </div>
       </motion.div>
     </section>

@@ -8,13 +8,14 @@ import { motion } from "framer-motion";
 import { PageInfo } from "@/typings";
 import useScrambleAnimation from "@/hooks/useTextScramble";
 import { useState } from "react";
+import { urlFor } from "@/sanity";
 
 type Props = {
   pageInfo: PageInfo;
 };
 
 const Hero = ({ pageInfo }: Props) => {
-  const [headerText, setText] = useState<string>("Software Engineer");
+  const [headerText, setText] = useState<string>(pageInfo.role);
 
   const delay = 140; // Adjust delay as needed
   const scrambledText = useScrambleAnimation(headerText, delay);
@@ -38,17 +39,29 @@ const Hero = ({ pageInfo }: Props) => {
         className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden px-2"
       >
         <BackgroundCircles />
-        <Image
-          src="/avatar.png"
-          width={100}
-          height={100}
-          alt="profile image"
-          className="relative rounded-full object-cover"
-        />
+        <motion.div
+          initial={{
+            y: -50,
+          }}
+          transition={{
+            duration: 2.5,
+          }}
+          whileInView={{ y: 0 }}
+        >
+          <Image
+            src={urlFor(pageInfo.heroImage).url()}
+            width={100}
+            height={100}
+            alt="profile image"
+            className="relative rounded-full object-cover"
+          />
+        </motion.div>
         <div className="z-20">
-          <h2 className="test-sm role-text uppercase font-semibold text-gray-500 pb-2 tracking-[1rem]">
-            {scrambledText}
-          </h2>
+          <div className="h-8 w-full">
+            <h2 className="test-sm role-text uppercase font-semibold text-gray-500 pb-2 tracking-[1rem]">
+              {scrambledText}
+            </h2>
+          </div>
 
           <h1 className="text-3xl sm:4xl lg:text-6xl">
             <span className="mr-3 capitalize">{text}</span>
